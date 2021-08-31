@@ -18,17 +18,5 @@ public class MyAudiApplication {
 		SpringApplication.run(MyAudiApplication.class, args);
 	}
 
-	@GetMapping
-	public List<Car> addCar(){
-		return List.of(
-				new Car(
-						1L,
-						"Audi",
-						"A5",
-						"WVWZZZ1KZ7W518416",
-						LocalDate.of(2010, Month.FEBRUARY, 12),
-						185000
-				)
-		);
-	}
+
 }
