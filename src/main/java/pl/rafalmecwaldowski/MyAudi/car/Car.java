@@ -1,29 +1,43 @@
 package pl.rafalmecwaldowski.MyAudi.car;
 
+import javax.persistence.*;
 import java.time.LocalDate;
-
+@Entity
+@Table
 public class Car {
+    @Id
+    @SequenceGenerator(
+            name = "car_sequence",
+            sequenceName = "car_sequence",
+            allocationSize = 1
+
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "car_sequence"
+    )
+
     private Long id;
     private String brand;
     private String model;
     private String vinNumber;
-    private LocalDate dof;
+    private LocalDate dop;
     private Integer mileage;
 
-    public Car(Long id, String brand, String model, String vinNumber, LocalDate dof, Integer mileage) {
+    public Car(Long id, String brand, String model, String vinNumber, LocalDate dop, Integer mileage) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.vinNumber = vinNumber;
-        this.dof = dof;
+        this.dop = dop;
         this.mileage = mileage;
     }
 
-    public Car(String brand, String model, String vinNumber, LocalDate dof, Integer mileage) {
+    public Car(String brand, String model, String vinNumber, LocalDate dop, Integer mileage) {
         this.brand = brand;
         this.model = model;
         this.vinNumber = vinNumber;
-        this.dof = dof;
+        this.dop = dop;
         this.mileage = mileage;
     }
 
@@ -59,12 +73,12 @@ public class Car {
         this.vinNumber = vinNumber;
     }
 
-    public LocalDate getDof() {
-        return dof;
+    public LocalDate getDop() {
+        return dop;
     }
 
-    public void setDof(LocalDate dof) {
-        this.dof = dof;
+    public void setDop(LocalDate dop) {
+        this.dop = dop;
     }
 
     public Integer getMileage() {
@@ -82,7 +96,7 @@ public class Car {
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", vinNumber='" + vinNumber + '\'' +
-                ", dof=" + dof +
+                ", dof=" + dop +
                 ", mileage=" + mileage +
                 '}';
     }
