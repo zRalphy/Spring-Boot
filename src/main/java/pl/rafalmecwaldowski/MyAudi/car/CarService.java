@@ -1,5 +1,6 @@
 package pl.rafalmecwaldowski.MyAudi.car;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -9,17 +10,15 @@ import java.util.List;
 
 @Service
 public class CarService {
-        @GetMapping
+
+    private final CarRepository carRepository;
+    @Autowired
+    public CarService(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
+
+    @GetMapping
         public List<Car> getCars(){
-            return List.of(
-                    new Car(
-                            1L,
-                            "Audi",
-                            "A5",
-                            "WVWZZZ1KZ7W518416",
-                            LocalDate.of(2010, Month.FEBRUARY, 12),
-                            185000
-                    )
-            );
+            return carRepository.findAll();
         }
 }
