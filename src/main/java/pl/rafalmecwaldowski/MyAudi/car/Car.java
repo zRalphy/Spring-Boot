@@ -2,6 +2,7 @@ package pl.rafalmecwaldowski.MyAudi.car;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+
 @Entity
 @Table
 public class Car {
@@ -23,6 +24,9 @@ public class Car {
     private String vinNumber;
     private LocalDate dop;
     private Integer mileage;
+
+    public Car() {
+    }
 
     public Car(Long id, String brand, String model, String vinNumber, LocalDate dop, Integer mileage) {
         this.id = id;
@@ -96,7 +100,7 @@ public class Car {
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", vinNumber='" + vinNumber + '\'' +
-                ", dof=" + dop +
+                ", dop=" + dop +
                 ", mileage=" + mileage +
                 '}';
     }
