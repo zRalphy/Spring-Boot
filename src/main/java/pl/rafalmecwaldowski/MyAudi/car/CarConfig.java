@@ -5,10 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
-
-import static java.util.Calendar.FEBRUARY;
-import static java.util.Calendar.MAY;
 
 @Configuration
 public class CarConfig {
@@ -19,7 +17,7 @@ public class CarConfig {
                     "Audi",
                     "A5",
                     "WVWZZZ1KZ7W518416",
-                    LocalDate.of(2010, FEBRUARY, 12),
+                    LocalDate.of(2010, Month.FEBRUARY, 12),
                     185000
             );
 
@@ -27,7 +25,7 @@ public class CarConfig {
                     "Audi",
                     "A6",
                     "WAUZZZ1KZ7W515041",
-                    LocalDate.of(2017, MAY, 25),
+                    LocalDate.of(2017, Month.MAY, 25),
                     150000
             );
 

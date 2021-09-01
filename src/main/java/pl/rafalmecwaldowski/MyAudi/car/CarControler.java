@@ -1,8 +1,11 @@
 package pl.rafalmecwaldowski.MyAudi.car;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -31,4 +34,17 @@ public class CarControler {
         carService.deleteCar(carId);
     }
 
+    @PutMapping(path = "{carId}")
+    public void updateCar(
+            @PathVariable ("carId") Long carId,
+            @RequestParam (required = false) String brand,
+            @RequestParam (required = false) String model,
+            @RequestParam (required = false) String vinNumber,
+            // @RequestParam (required = false) LocalDate dop,
+            @RequestParam("dop") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dop,
+            @RequestParam (required = false) Integer mileage
+            ){
+        carService.updateCar(carId, brand, model, vinNumber, dop, mileage);
+
+    }
 }
